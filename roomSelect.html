@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+        <script>
+            function link(num) {
+                var urlParams = new URLSearchParams(window.location.search);
+                var uid = urlParams.get("uid");
+
+                if (uid) {
+                    // uid가 존재하면 해당 uid 값을 사용하여 URL 생성
+                    return "/room" + num + ".html?uid=" + uid;
+                } else {
+                    // uid가 없을 경우 예외 처리 또는 기본값 사용
+                    return "/room" + num + ".html";
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <h1>방 선택하기</h1>
+        <table class="table">
+            <tr>
+                <th>방 1</th>
+                <th>방 2</th>
+                <th>방 3</th>
+                <th>방 4</th>
+            </tr>
+            <tr>
+                <td><button type="button" onclick="location.href=link(1)">접속하기</button></td>
+                <td><button type="button" onclick="location.href=link(2)">접속하기</button></td>
+                <td><button type="button" onclick="location.href=link(3)">접속하기</button></td>
+                <td><button type="button" onclick="location.href=link(4)">접속하기</button></td>
+            </tr>
+        </table>
+    </body>
+</html>

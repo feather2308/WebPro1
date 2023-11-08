@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <title>문서 작성</title>
+        <meta charset="utf-8">
+        <script>
+            let num = 1;
+            window.onload = function ( ) {
+                document.getElementById("c").onclick = function () {
+                    let p = document.createElement("P");
+                    p.id = "p" + num++;
+                    let txt = document.createTextNode("문단 " + p.id);
+                    p.appendChild(txt);
+                    document.body.appendChild(p);
+                };
+                document.getElementById("d").onclick = function () {
+                    if(num <= 1) return;
+                    let p = document.getElementById("p" + (--num));
+                    if(p) {
+                        document.body.removeChild(p);
+                }
+                };
+                document.getElementById("p").onclick = function () {
+                    let ps = document.getElementsByTagName("P");
+                    for(let p of ps) {
+                        let fontSize = window.getComputedStyle(p).fontSize;
+                        let size = parseFloat(fontSize);
+                        p.style.fontSize = (size + 2) + "px";
+                }
+                };
+                document.getElementById("m").onclick = function () {
+                    ps = document.getElementsByTagName("P");
+                    for(let p of ps) {
+                        let fontSize = window.getComputedStyle(p).fontSize;
+                        let size = parseFloat(fontSize);
+                        if(size == 2) continue;
+                        p.style.fontSize = (size - 2) + "px";
+                    }
+                };
+            };
+        </script>
+    </head>
+    <body>
+        <button id="c">생성</button> <button id="d">삭제</button>
+        <button id="p">+</button><button id="m">-</button>
+        <h3>문서작성</h3>
+    </body>
+</html>

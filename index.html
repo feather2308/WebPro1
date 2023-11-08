@@ -1,50 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>실시간 다인 채팅 및 문서 작성 플랫폼</title>
-    <style>
-        /* CSS 스타일링은 여기에 추가할 수 있습니다. */
-    </style>
-</head>
-<body>
-    <div id="chat-room">
-        <div id="chat-messages">
-            <!-- 실시간 채팅 메시지가 나타날 공간 -->
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="index">
+            <form method="login" action="/roomSelect.html">
+                <a class="nickname_text">닉네임</a><br>
+                <input class="input" type="text" name="uid" value="유저"><br>
+                <input class="submit" type="submit" value="접속">
+            </form>
         </div>
-        <input type="text" id="chat-input" placeholder="채팅을 입력하세요">
-        <button onclick="sendMessage()">전송</button>
-    </div>
-
-    <div id="document-editor">
-        <textarea id="editor" placeholder="문서를 작성하세요"></textarea>
-    </div>
-
-    <script>
-        // 채팅 메시지 전송
-        function sendMessage() {
-            const messageInput = document.getElementById('chat-input');
-            const message = messageInput.value;
-
-            if (message.trim() !== '') {
-                const chatMessages = document.getElementById('chat-messages');
-                const newMessage = document.createElement('div');
-                newMessage.innerText = message;
-                chatMessages.appendChild(newMessage);
-
-                // 전송 후 입력창 초기화
-                messageInput.value = '';
-            }
-        }
-
-        // 문서 작성 실시간 업데이트
-        const editor = document.getElementById('editor');
-        editor.addEventListener('input', () => {
-            const documentContent = editor.value;
-            // 실시간 문서 업데이트를 원하는 경우 서버에 업데이트 요청을 보낼 수 있음
-        });
-    </script>
-</body>
+    </body>
 </html>
