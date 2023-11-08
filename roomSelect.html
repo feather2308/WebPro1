@@ -23,57 +23,133 @@
 
             #wrap {
                 width: 90%;
-                height: 100%;
                 margin: 0 auto;
+                border: 2px solid #E1D7FF;
+                border-radius: 4px;
             }
-            
+
+            .he1 {
+                border-bottom: 1px dashed black;
+            }
+
             .container {
-                width: 95%;
-                height: 500px;
+                width: 100%;
+                height: 300px;
                 margin: 0 auto;
-                text-align: center;
+                align-items: center;
+                display: inline-flex;
+                
+                border-bottom: 1px dashed black;
+                margin-bottom: 10px;
             }
             .container .con {
-                width: 100%;
-                height: 45%;
-                margin: 0 auto;
-            }
-            .container .con div {
-                display: inline-block;
                 width: 20%;
-                height: 100%;
-                text-align: left;
+                height: 80%;
+                margin: 0 auto;
                 background-color: #E1D7FF;
-            }
-            .container .con1 {
-                width: 100%;
-                height: 20%;
-                margin: 0 auto;
-            }
-            .container .con1 div {
-                display: inline-block;
-                width: 20%;
                 text-align: center;
-                background-color: #E1D7FF;
+                border-radius: 10px;
+            }
+            .container .con div:first-child {
+                text-align: left;
+                padding-left: 10px;
+                padding-top: 5px;
+            }
+            .container .con div:first-child + div {
+                width: 80%;
+                height: 67%;
+                margin: 0 auto;
+                background-color: aliceblue;
+                border: 1px solid black;
+                border-radius: 4px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .container .con div:first-child + div div:first-child {
+                border-bottom: 1px dashed black;
+                padding-bottom: 5px;
+            }
+            .container .con div:first-child + div div:first-child + div {
+                font-size: 12px;
+                text-align: left;
+                border: 0px;
+                padding-top: 5px;
+                padding-bottom: 0px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            .container .con button {
+                border-radius: 5px;
+                border: 1px solid black;
+            }
+
+            .bo1 {
+                padding: 10px;
+                padding-top: 0px;
             }
         </style>
     </head>
     <body>
         <div id="wrap">
-            <h1>방 선택하기</h1>
+            <div class="he1">
+                <h1>방 선택</h1>
+            </div>
             <div class="container">
                 <div class="con">
                     <div>방 1</div>
+                    <div>
+                        <div>
+                            참여자
+                        </div>
+                        <div>
+                            <p style="color: blue; line-height: 0.5em;">유저 1</p>
+                            <p style="color: red; line-height: 0.5em;">유저 2</p>
+                        </div>
+                    </div>
+                    <button type="button" onclick="location.href=link(1)">접속하기</button>
+                </div>
+                <div class="con">
                     <div>방 2</div>
+                    <div>
+                        <div>
+                            참여자
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <button type="button" onclick="location.href=link(2)">개설하기</button>
+                </div>
+                <div class="con">
                     <div>방 3</div>
+                    <div>
+                        <div>
+                            참여자
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <button type="button" onclick="location.href=link(3)">개설하기</button>
+                </div>
+                <div class="con">
                     <div>방 4</div>
+                    <div>
+                        <div>
+                            참여자
+                        </div>
+                        <div>
+                            
+                        </div>
+                    </div>
+                    <button type="button" onclick="location.href=link(4)">개설하기</button>
                 </div>
-                <div class="con1">
-                    <div><button type="button" onclick="location.href=link(1)">접속하기</button></div>
-                    <div><button type="button" onclick="location.href=link(2)">접속하기</button></div>
-                    <div><button type="button" onclick="location.href=link(3)">접속하기</button></div>
-                    <div><button type="button" onclick="location.href=link(4)">접속하기</button></div>
-                </div>
+            </div>
+            <div class="bo1">
+                <p style="line-height: 0.3em; padding-bottom: 0.8em;">관련 링크</p>
+                <a href="https://github.com/feather2308/WebPro1"><svg height="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-mark-github v-align-middle color-fg-default">
+                    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                </svg>GitHub</a>
             </div>
         </div>
     </body>
