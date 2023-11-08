@@ -46,30 +46,3 @@
     line-height: normal;
     white-space: nowrap;
 }
-
-.roomSelect {
-    padding: 100px 0px;
-    background-color: #ffffff;
-    position: relative;
-    text-align: center;
-    display: flex; /* 수정: flex 컨테이너로 변경 */
-    flex-direction: column; /* 수정: 세로 방향으로 정렬 */
-    justify-content: center; /* 추가: 세로 중앙 정렬 */
-}
-.roomSelect .table{
-    font-family: Arial, Helvetica, sans-serif;
-    border-collapse: collapse;
-    width: 100%;
-}
-.roomSelect .table td, .table th{
-    border: 1px solid #ddd;
-    padding: 8px;
-}
-.roomSelect .table tr:nth-child(even){background-color: #f2f2f2;}
-.roomSelect .table tr:hover{background-color: #ddd;}
-.roomSelect .table th{
-    padding-top: 12px;
-    padding-bottom: 12px;
-    background-color: #04AA6D;
-    color: white;
-}
