@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8">
+        <title>Catting and Document - 방선택</title>
         <link rel="stylesheet" href="style.css" />
         <script>
             function link(num) {
@@ -17,14 +19,37 @@
             };
         </script>
         <style>
+            body {
+                margin: 0px;
+                background-color: #E1D7FF;
+            }
+
             h1 {
                 text-align: center;
+            }
+
+            header {
+                width: 100%;
+                height: 50px;
+                border-bottom: 1px dashed black;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                justify-items: center;
+                margin-bottom: 10px;
+            }
+            header .header_image {
+                margin-left: 25px;   
+            }
+            header .header_lore {
+                margin-left: 70%;
             }
 
             #wrap {
                 width: 90%;
                 margin: 0 auto;
-                border: 2px solid #E1D7FF;
+                border: 2px solid #000000;
+                background-color: #FFFFFF;
                 border-radius: 4px;
             }
 
@@ -49,6 +74,7 @@
                 background-color: #E1D7FF;
                 text-align: center;
                 border-radius: 10px;
+                border: 1px solid black;
             }
             .container .con div:first-child {
                 text-align: left;
@@ -60,7 +86,6 @@
                 height: 67%;
                 margin: 0 auto;
                 background-color: aliceblue;
-                border: 1px solid black;
                 border-radius: 4px;
                 margin-top: 10px;
                 margin-bottom: 10px;
@@ -90,6 +115,19 @@
         </style>
     </head>
     <body>
+        <header>
+            <div class="header_image"><a href="./index.html">
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg viewBox="67.947 33.437 206.2178 23" width="206.2178" height="23" xmlns="http://www.w3.org/2000/svg">
+                <text style="white-space: pre; fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 20.7px;" x="67.947" y="52.437">Catting and Document</text>
+                </svg>
+            </a></div>
+            <div class="header_lore">
+                <a href="https://github.com/feather2308/WebPro1"><svg height="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-mark-github v-align-middle color-fg-default">
+                    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
+                </svg>GitHub</a>
+            </div>
+        </header>
         <div id="wrap">
             <div class="he1">
                 <h1>방 선택</h1>
@@ -146,10 +184,9 @@
                 </div>
             </div>
             <div class="bo1">
-                <p style="line-height: 0.3em; padding-bottom: 0.8em;">관련 링크</p>
-                <a href="https://github.com/feather2308/WebPro1"><svg height="16" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="16" data-view-component="true" class="octicon octicon-mark-github v-align-middle color-fg-default">
-                    <path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path>
-                </svg>GitHub</a>
+                <p style="line-height: 1.2em;">웹프로그래밍1</p>
+                <p style="line-height: 0.3em; padding-bottom: 0.8em;">개발</p>
+                <p>학번 이름<br>학번 이름</p>
             </div>
         </div>
     </body>
