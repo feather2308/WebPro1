@@ -86,7 +86,7 @@
                 }
         }
 
-        let num = 3;
+        let num = 1;
         let selectedParagraph = null; // 선택된 문단을 저장할 변수
 
         window.onload = function () {
@@ -256,8 +256,6 @@
     <div class="container">
         <div>
             <div class="chat-box" id="chat">
-                <p id="j1">유저1: 채팅입력 테스트</p>
-                <p id="j2">유저2: 안녕하세요!</p>
             </div>
             <div style="margin: 10px;">
                 <input type="text" id="userChat" placeholder="채팅을 입력하세요">
@@ -280,22 +278,8 @@
                 <label for="imageUpload" id="uploadImage">사진 추가</label>-->
             </div>
             <div class="box" id="box">
-                <p id="p1" draggable="true" contenteditable="true">문서 작성 예시..</p>
-                <p id="p2" draggable="true" contenteditable="true">목포대학교는 대한민국의 국립 대학이다. 1946년 목포사범학교로 개교했다. 1964년에 목포교육대학으로 바뀌었으며, 1978년 목포초급대학으로 개편되었다가 1979년에 4년제 국립목포대학으로 승격 개편되었으며 1990년 종합 대학인 국립목포대학교로 승격하였다.</p>
             </div>
         </div>
     </div>
-
-    <script>
-        function selectParagraph(p) {
-                if (selectedParagraph) {
-                    selectedParagraph.classList.remove("selected");
-                }
-                selectedParagraph = p;
-                selectedParagraph.classList.add("selected");
-        }
-        document.getElementById("p1").onclick = function () {selectParagraph(document.getElementById("p1"));};
-        document.getElementById("p2").onclick = function () {selectParagraph(document.getElementById("p2"));};
-    </script>
 </body>
 </html>
