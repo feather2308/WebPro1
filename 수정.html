@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>동적 내용 생성</title>
+    <meta charset="utf-8">
+    <style>
+        /* 선택된 문단에 대한 스타일을 추가합니다. */
+        .selected {
+            background-color: lightgray;
+        }
+        .container {
+            display: flex; /* 가로로 배열하는 flexbox를 사용합니다. */
+        }
+        .box-container {
+        }
+        .chat-box {
+            width: 250px;
+            height: 640px;
+            background-color: white;
+            margin: 0px 15% 0px 10px;
+            padding: 10px 5px 10px 5px;
+        }
+        .box-create {
+            margin: 0px 3% 0px 3%;
+        }
+        .box {
+            width: 600px;
+            height: 570px;
+            background-color: white;
+            margin: 3%;
+            padding: 10px 5px 10px 5px;
+        }
+
+
+    </style>
+    
+    <script>
+        let num = 1;
+        let selectedParagraph = null; // 선택된 문단을 저장할 변수
+
+        window.onload = function () {
+            document.getElementById("c").onclick = function () { // 생성
+                let userInput = document.getElementById("userInput").value;
+
+                if (userInput) {
+                    const p = createParagraph(userInput);
+                    document.getElementById("box").appendChild(p); // 문단을 박스 내에 추가
+                    document.getElementById("userInput").value = "";
+                }
+            };
+
+            function createParagraph(text) { //문단 초기 설정
+                const p = document.createElement("p");
+                p.id = "p" + num++; 
+                p.innerHTML = text;
+                p.setAttribute("draggable", "true"); //드래그 가능
+                p.setAttribute("contenteditable", "true"); //편집 가능
+                p.onclick = function (event) {
+                    selectParagraph(p);
+                };
+                return p;
+            }
+
+            document.getElementById("userInput").addEventListener("keyup", function(event) { //엔터 시 추가
+                if (event.key === "Enter") {
+                    document.getElementById("c").click();
+                }
+            });
+
+
+            document.getElementById("submit").onclick = function () { // 채팅 생성
+                let userChat = document.getElementById("userChat").value;
+
+                if (userChat) {
+                    const j = create(userChat);
+                    document.getElementById("chat").appendChild(j); 
+                    document.getElementById("userChat").value = "";
+                }
+            };
+
+            function create(text) { //채팅 초기 설정
+                const j = document.createElement("p");
+                j.id = "j" + num++; 
+                j.innerHTML = text;
+                return j;
+            }
+
+            document.getElementById("userChat").addEventListener("keyup", function(event) { //엔터 시 추가
+                if (event.key === "Enter") {
+                    document.getElementById("submit").click();
+                }
+            });
+
+            document.getElementById("d").onclick = function () { // 삭제
+                if (selectedParagraph) {
+                    document.getElementById("box").removeChild(selectedParagraph);
+                    selectedParagraph = null; // 선택 해제
+                }
+            };
+
+            document.getElementById("p").onclick = function () { // 크기 키우기
+                if (selectedParagraph) {
+                    let fontSize = window.getComputedStyle(selectedParagraph).fontSize;
+                    let size = parseFloat(fontSize);
+                    selectedParagraph.style.fontSize = (size + 2) + "px";
+                }
+            };
+
+            document.getElementById("m").onclick = function () { // 크기 줄이기
+                if (selectedParagraph) {
+                    let fontSize = window.getComputedStyle(selectedParagraph).fontSize;
+                    let size = parseFloat(fontSize);
+                    if (size == 2) return; // 최소 크기로 줄어들지 않도록 함
+                    selectedParagraph.style.fontSize = (size - 2) + "px";
+                }
+            };
+
+            document.getElementById("g").onclick = function () { // 기울기
+                if (selectedParagraph) {
+                    document.execCommand("italic", false, null);
+                }
+            };
+
+            document.getElementById("b").onclick = function () { // 굵기
+                if (selectedParagraph) {
+                    document.execCommand("bold", false, null);
+                }
+            };
+
+            document.getElementById("j").onclick = function () { // 밑줄
+                if (selectedParagraph) {
+                    document.execCommand("underline", false, null);
+                }
+            };
+
+            document.getElementById("h").onclick = function () { // 취소선
+                if (selectedParagraph) {
+                    document.execCommand("strikeThrough", false, null);
+                }
+            };
+
+            document.getElementById("edit").onclick = function () { // 수정
+                if (selectedParagraph) {
+                    let newText = prompt("새로운 내용을 입력하세요", selectedParagraph.innerHTML);
+                    if (newText !== null) {
+                        selectedParagraph.innerHTML = newText;
+                    }
+                }
+            };
+
+            document.getElementById("uploadImage").onclick = function () {
+                const imageUploadInput = document.getElementById("imageUpload");
+                imageUploadInput.addEventListener("change", function () {
+                    if (imageUploadInput.files.length > 0) {
+                        const file = imageUploadInput.files[0];
+                        const reader = new FileReader();
+                        reader.onload = function (event) {
+                            const imageUrl = event.target.result;
+                            if (selectedParagraph) {
+                                const img = document.createElement("img");
+                                img.src = imageUrl;
+                                // 이미지를 현재 선택된 문단 뒤에 추가
+                                selectedParagraph.parentNode.insertBefore(img, selectedParagraph.nextSibling);
+                            }
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                });
+            };
+
+            // 문단을 선택하는 함수
+            function selectParagraph(p) {
+                if (selectedParagraph) {
+                    selectedParagraph.classList.remove("selected");
+                }
+                selectedParagraph = p;
+                selectedParagraph.classList.add("selected");
+            }
+        };
+    </script>
+</head>
+<body style="background-color: #E1D7FF;">
+    <h3>문서 작성</h3>
+    
+    <div class="container">
+        <div class="chat-box" id="chat"> 
+            <input type="text" id="userChat" placeholder="채팅을 입력하세요">
+            <button id="submit">전송</button>
+        </div>
+        <div class = "box-container">
+            <div class = "box-create">
+                <input type="text" id="userInput" placeholder="내용을 입력하세요">
+                <button id="c">생성</button>
+                <button id="d">삭제</button>
+                <br>
+                <button id="p">+</button>
+                <button id="m">-</button>
+                <button id="g">기울기</button>
+                <button id="b">굵기</button>
+                <button id="j">밑줄</button>
+                <button id="h">취소선</button>
+                <!--<input type="file" id="imageUpload" style="display: none;">
+                <label for="imageUpload" id="uploadImage">사진 추가</label>-->
+            </div>
+            <div class="box" id="box">
+            </div>
+        </div>
+        
+    </div>
+    
+    
+</body>
+</html>
